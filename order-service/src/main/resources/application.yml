@@ -1,0 +1,22 @@
+server:
+  port: 10000
+spring:
+  application:
+    name: order-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: server1:8846
+        username: nacos
+        password: nacos
+    sentinel:
+      transport:
+        dashboard: localhost:8858
+        port: 8719
+      log:
+        dir: log
+feign:
+  httpclient:
+    enabled: true
+  sentinel:
+    enabled: true   #If true, an OpenFeign client will be wrapped with a Sentinel circuit breaker.

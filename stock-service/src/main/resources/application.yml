@@ -1,0 +1,23 @@
+server:
+  port: 10002
+spring:
+  application:
+    name: stock-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: server1:8846
+        namespace: ''     #public namespace id
+        username: nacos
+        password: nacos
+    sentinel:
+      transport:
+        dashboard: localhost:8858
+        port: 8719
+      log:
+        dir: log
+feign:
+  httpclient:
+    enabled: true
+  sentinel:
+    enabled: true     #If true, an OpenFeign client will be wrapped with a Sentinel circuit breaker.
